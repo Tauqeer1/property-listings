@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./listings.component.css']
 })
 export class ListingsComponent {
-
+  title = 'ListingsComponent';
 }
