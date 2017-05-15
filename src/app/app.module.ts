@@ -3,9 +3,19 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+
+// Config
+import { firebaseConfig } from './config/firebase.config';
+
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+
 
 // Routes
 import { appRoutes } from './routes/app.routes';
+
+// Services
+import { FirebaseService } from './services/firebase.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -30,9 +40,10 @@ import { EditListingComponent } from './components/edit-listing/edit-listing.com
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
-  providers: [],
+  providers: [FirebaseService, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
